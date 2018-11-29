@@ -136,6 +136,16 @@ module Capybara
 
     ##
     #
+    # Disconnect from the current driver.  A new driver will be instantiated on the next interaction
+    #
+    #
+    def quit
+      @driver.quit if @driver.respond_to? :quit
+      @driver = nil
+    end
+
+    ##
+    #
     # Raise errors encountered in the server
     #
     def raise_server_error!
